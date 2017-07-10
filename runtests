@@ -1,0 +1,10 @@
+#!/bin/bash
+DATE=$(date '+%Y%m%d-%H:%M:%S')
+python -m nose.core tests/test_*.py -v --with-coverage --cover-xml
+
+# rename and save the coverage report
+mv coverage.xml coverage_reports/coverage-${DATE}.xml
+
+# Clean the working dir
+rm -rf src/__pycache__ tests/__pycache__
+rm .coverage

@@ -1,0 +1,17 @@
+#! /bin/bash
+FILENAME=$@
+
+DOT_INDEX=$(expr index $FILENAME 1.)
+
+FILE=${FILENAME:0:$DOT_INDEX-1}
+DATE=$(date '+%Y%m%d-%H:%M:%S')
+
+echo "Profiling ${FILENAME}"
+
+python -m cProfile -s tottime ${FILENAME} > temp-cprof-${FILE}.info
+head temp-cprof-${FILE}.info > profiling_reports/cprof-${FILE}-${DATE}.info
+
+# Clean current dir
+rm temp-cprof-${FILE}.info
+
+echo "Done"

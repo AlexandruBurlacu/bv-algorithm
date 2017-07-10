@@ -1,0 +1,806 @@
+{
+    "grievance": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "agitation": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "fury": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "vengefulness": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "resentment": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "torment": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "displeasure": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "irritation": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "anger": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "abominable": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "hate": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "contempt": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "annoyance": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "envy": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "revultion": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "wrath": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "spite": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "acrimony": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "loathing": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "jealousy": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "exasperation": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "disgust": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "detestation": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "outrage": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "dislike": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "grumpiness": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "grouchiness": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "frustration": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "antagonism": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "hostility": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "antipathy": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "scorn": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "animosity": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "revulsion": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "abhorrence": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "ferocity": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "hostile": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "rage": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "enmity": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "bitterness": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "aggravation": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "repulsion": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "aversion": {
+        "category": "anger", 
+        "sentiment": -1
+    }, 
+    "hatred": {
+        "category": "anger", 
+        "sentiment": -1
+    },
+    "phobia": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "distress": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "fright": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "uneasiness": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "tenseness": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "fear": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "mortification": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "worry": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "hysteria": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "nightmare": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "terror": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "concern": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "panic": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "nervousness": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "horror": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "qualm": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "awe": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "anxiety": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "angst": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "alarm": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "shock": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "apprehension": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "jitters": {
+        "category": "fear", 
+        "sentiment": -1
+    }, 
+    "dread": {
+        "category": "fear", 
+        "sentiment": -1
+    },
+    "pessimistic": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "regret": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "humiliation": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "poignancy": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "shame": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "displeasure": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "gloominess": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "anguish": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "depression": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "unhappiness": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "pensive": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "glumness": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "insecurity": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "insult": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "heartbreak": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "remorse": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "morbid": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "woe": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "mournful": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "bitter": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "funeral": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "dismay": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "melancholy": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "dejection": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "sorrow": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "defeat": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "hurt": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "grief": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "embarrassment": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "suffering": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "sorry": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "hopelessness": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "dolor": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "grim": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "pity": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "gloom": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "rejection": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "sympathy": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "isolation": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "loneliness": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "dysphoria": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "sadness": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "despair": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "guilt": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "disappointment": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "alienation": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "agony": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "homesickness": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "neglect": {
+        "category": "sadness", 
+        "sentiment": -1
+    }, 
+    "misery": {
+        "category": "sadness", 
+        "sentiment": -1
+    },
+    "enthrallment": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "eagerness": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "alleviation": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "rapture": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "gladness": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "satisfaction": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "gaiety": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "joviality": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "optimism": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "cheerfulness": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "amusement": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "glee": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "cheer": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "euphoria": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "elation": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "contentment": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "happiness": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "bliss": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "pride": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "hope": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "zest": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "festive": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "enjoyment": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "joy": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "mirth": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "delight": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "jubilation": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "felicity": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "charm": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "enthusiasm": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "exultation": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "frolic": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "thrill": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "ecstasy": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "zeal": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "jubiliance": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "jolliness": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "excitement": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "exhilaration": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "relief": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "fun": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "pleasure": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "laughter": {
+        "category": "joy", 
+        "sentiment": 1
+    }, 
+    "triumph": {
+        "category": "joy", 
+        "sentiment": 1
+    },
+    "love": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "fidelity": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "allegiance": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "lust": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "infatuation": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "respect": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "arousal": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "amour": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "liking": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "worship": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "caring": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "adoration": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "attraction": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "passion": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "compassion": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "ardor": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "amity": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "cherishing": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "apprectiation": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "idolatry": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "fondness": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "desire": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "longing": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "sentimentality": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "tenderness": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "devotion": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "friendship": {
+        "category": "love", 
+        "sentiment": 1
+    }, 
+    "affection": {
+        "category": "love", 
+        "sentiment": 1
+    },
+    "revelation": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "jolt": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "miracle": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "eureka": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "astoundment": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "epiphany": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "astonishment": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "amazement": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "surprise": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "wonder": {
+        "category": "surprise", 
+        "sentiment": 1
+    }, 
+    "wonderment": {
+        "category": "surprise", 
+        "sentiment": 1
+    }
+}
