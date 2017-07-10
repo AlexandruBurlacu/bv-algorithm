@@ -3,7 +3,7 @@
 This is the client part of the `ner_tagger` system.
 """
 
-# Author: Alexandru Varacuta
+# Author: Alexandru Burlacu
 # Email:  alexandru-varacuta@bookvoyager.org
 
 from xmlrpc import client

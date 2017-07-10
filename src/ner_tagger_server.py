@@ -10,7 +10,7 @@ there will be instatiated an RPC server bind to
 address and port specified in `config.json` file.
 """
 
-# Author: Alexandru Varacuta
+# Author: Alexandru Burlacu
 # Email:  alexandru-varacuta@bookvoyager.org
 
 from xmlrpc import server

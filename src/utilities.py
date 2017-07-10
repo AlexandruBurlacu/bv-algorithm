@@ -3,7 +3,7 @@
 This module provides utility functions.
 """
 
-# Author: Alexandru Varacuta
+# Author: Alexandru Burlacu
 # Email:  alexandru-varacuta@bookvoyager.org
 
 import json

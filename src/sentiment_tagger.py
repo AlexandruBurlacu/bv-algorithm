@@ -3,7 +3,7 @@
 This module contains functions to deal with sentiment tagging of the raw text.
 """
 
-# Author: Alexandru Varacuta
+# Author: Alexandru Burlacu
 # Email:  alexandru-varacuta@bookvoyager.org
 
 def sentiment_tagger(index, word, word_dict):
