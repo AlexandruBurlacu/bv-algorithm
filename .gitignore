@@ -1,5 +1,6 @@
 .venv
-resources/{emotions, raw_text}
+resources/emotions
+resources/raw_text
 *_reports
 project_info
 
