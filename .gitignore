@@ -3,4 +3,6 @@ resources/emotions
 resources/raw_text
 *_reports
 project_info
-
+__pycache__
+temp_*
+*.log
