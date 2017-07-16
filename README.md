@@ -15,6 +15,10 @@ Initially, you need `python` 3.5.x or higher and `virtualenv` to be installed on
 
     # enter the virtual environment
     source .venv/bin/activate
+
+    # Also, due to the usage of SpaCy, you will need to download the language model
+    # For more info about it, check the SpaCy docs
+    python -m spacy download en
 ```
 
 ## Testing
