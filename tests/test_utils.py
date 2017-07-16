@@ -15,7 +15,7 @@ class TestUtilsModule(unittest.TestCase):
 
     def test_drop_none_no_match(self):
         pre_data = "Hello darkness my old friend".split()
-        data = map(lambda x: (None, None, x, x), pre_data)
+        data = map(lambda x: None, pre_data)
         self.assertEqual(list(utils.drop_none(data)), [])
 
 

@@ -1,6 +1,7 @@
 {
     "raw_text": "resources/raw_text",
     "sentiment_vocab": "resources/library.json",
+    "space_vocab": "resources/scifi_space_settings.json",
     "ner_tagger": {
         "address": "localhost",
         "port": 9000,
