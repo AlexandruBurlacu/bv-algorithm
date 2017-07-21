@@ -1,6 +1,16 @@
 #!/bin/bash
 DATE=$(date '+%Y%m%d-%H:%M:%S')
-python -m nose.core tests/test_*.py -v --with-coverage --cover-xml
+
+
+if lsof -Pi :9000 -sTCP:LISTEN -t
+then
+    python -m nose.core tests/test_*.py -v --with-coverage --cover-xml
+else 
+    python src/ner_tagger_server.py & > /dev/null
+    sleep 10
+    python -m nose.core tests/test_*.py -v --with-coverage --cover-xml
+    kill $(lsof -Pi :9000 -sTCP:LISTEN -t)
+fi
 
 # rename and save the coverage report
 mv coverage.xml coverage_reports/coverage-${DATE}.xml
