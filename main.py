@@ -7,7 +7,7 @@ import os
 import json
 import requests
 
-from src import get_config, sentiment_tagger, NERTagger, CharactersProcessor
+from src import get_config, sentiment_tagger, NERTagger, CharacterProcessor
 from src.utilities import drop_none
 
 def db_write(db_service_url, sources):
@@ -44,7 +44,7 @@ def sentiment_processor(sent_data):
     sent_d = drop_none(sent_data)
     return {"overall": sent_score(sent_d), "timeline": sent_d}
 
-def schemify(ner_data, sent_data):
+def schemify(ner_data, sent_data, raw_data):
     """The schema
     book_name: {
         "id":
@@ -107,7 +107,10 @@ def schemify(ner_data, sent_data):
     # fields["time"] = time_processor(ner_data)
     # fields["id"] =
     # fields["metadata"] = get_metadata(...)
-    # fields["genre"] = get_genre(...)
+    fields["genre"] = {
+        "space": None, # space_processor()
+        "characters": CharacterProcessor().run(raw_data)
+    }
     return fields
 
 def _main():
@@ -123,17 +126,16 @@ def _main():
     for title in get_data(args.source): # "resources/raw_text" # for test purpose only
         with open(title) as file_ptr, \
              open(config["sentiment_vocab"]) as vocab_ptr:
-            file_content = file_ptr.read().split()
+            file_content = file_ptr.read()
 
             vocab = json.load(vocab_ptr)
 
             sentiment_data = (sentiment_tagger(i, word, vocab)
-                              for i, word in enumerate(file_content))
+                              for i, word in enumerate(file_content.split()))
 
-            _ = file_ptr.seek(0) # [WARNING] the `file_ptr`s data will be now available again
-            ner_data = ner_tagger.get_labels(file_ptr.readlines())
+            ner_data = ner_tagger.get_labels(file_content.splitlines())
 
-            data = schemify(ner_data, sentiment_data)
+            data = schemify(ner_data, sentiment_data, file_content.split())
 
             print(data)
             # db_write(config["db_service_addr"], data)

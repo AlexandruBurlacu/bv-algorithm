@@ -12,7 +12,7 @@ Module contains methods to indentify 5 main types of Sci-fi characters:
 # Email:  alexandru-varacuta@bookvoyager.org
 
 from collections import defaultdict
-from utilities import drop_none
+from .utilities import drop_none
 
 
 class CharacterProcessor:
@@ -24,12 +24,14 @@ class CharacterProcessor:
             return {"aliens": 1}
         if "robot" in tok:
             return {"robots": 1}
-        if "android" in tok:
-            return {"androids": 1}
+        if "droid" in tok:
+            return {"humanoiddroids": 1}
         if "dragon" in tok:
             return {"dragons": 1}
         if "mutant" in tok:
             return {"mutants": 1}
+        if "superintelligence" in tok:
+            return {"superintelligence": 1}
         else:
             return None
 
