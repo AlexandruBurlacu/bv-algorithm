@@ -7,7 +7,7 @@ import os
 import json
 import requests
 
-from src import get_config, sentiment_tagger, NERTagger
+from src import get_config, sentiment_tagger, NERTagger, CharactersProcessor
 from src.utilities import drop_none
 
 def db_write(db_service_url, sources):
@@ -43,33 +43,6 @@ def sentiment_processor(sent_data):
     """Computes the values for 'sentiment' field in the schema."""
     sent_d = drop_none(sent_data)
     return {"overall": sent_score(sent_d), "timeline": sent_d}
-
-def get_times(entities):
-    """Extracts time related tokens or
-    combinations of them for futher interpretation."""
-    data = []
-    for label in entities:
-        if label[2] == "DATE":
-            data += [label[0]]
-
-    return data
-
-def time_processor(entities):
-    """Computes the values for the 'time' field of the schema.
-
-    I need a dictionary with words/n-grams classified
-    as `past`, `present`, `future`, `alternative`.
-
-    Or as an alternative idea, to train a ML model (ex. Perceptron)"""
-    result = {
-        "present": False,
-        "past": False,
-        "future": False,
-        "alternative": False
-    }
-    data = get_times(entities)
-
-    return {"labels": data} # not finished!
 
 def schemify(ner_data, sent_data):
     """The schema
@@ -131,11 +104,11 @@ def schemify(ner_data, sent_data):
         "genre": None
     }
     fields["sentiment"] = sentiment_processor(sent_data)
-    fields["time"] = time_processor(ner_data)
+    # fields["time"] = time_processor(ner_data)
     # fields["id"] =
     # fields["metadata"] = get_metadata(...)
     # fields["genre"] = get_genre(...)
-    return get_times(ner_data)
+    return fields
 
 def _main():
     parser = argparse.ArgumentParser()
