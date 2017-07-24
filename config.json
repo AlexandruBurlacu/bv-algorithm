@@ -3,8 +3,6 @@
     "sentiment_vocab": "resources/library.json",
     "space_vocab": "resources/scifi_space_settings.json",
     "ner_tagger": {
-        "address": "localhost",
-        "port": 9000,
         "batch_size": 100,
         "n_threads": 3
     },
