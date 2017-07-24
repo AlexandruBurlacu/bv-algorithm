@@ -41,7 +41,7 @@ def sent_score(sent_data):
 
 def sentiment_processor(sent_data):
     """Computes the values for 'sentiment' field in the schema."""
-    sent_d = drop_none(sent_data)
+    sent_d = list(drop_none(sent_data))
     return {"overall": sent_score(sent_d), "timeline": sent_d}
 
 def schemify(ner_data, sent_data, raw_data):
@@ -122,7 +122,7 @@ def _main():
     config = get_config()
     ner_tagger = NERTagger()
 
-
+    agg = []
     for title in get_data(args.source): # "resources/raw_text" # for test purpose only
         with open(title) as file_ptr, \
              open(config["sentiment_vocab"]) as vocab_ptr:
@@ -137,10 +137,10 @@ def _main():
 
             data = schemify(ner_data, sentiment_data, file_content.split())
 
-            # print(data)
-            # db_write(config["db_service_addr"], data)
+            agg += [data]
 
-    return NotImplemented
+    db_write(config["db_service_addr"], agg)
+
 
 if __name__ == '__main__':
     _main()
