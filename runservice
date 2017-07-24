@@ -1,0 +1,10 @@
+#! /bin/sh
+if lsof -Pi :9000 -sTCP:LISTEN -t
+then
+    python main.py --source resources/raw_text
+else 
+    python src/ner_tagger_server.py & > /dev/null
+    sleep 10
+    python main.py --source resources/raw_text
+    kill $(lsof -Pi :9000 -sTCP:LISTEN -t)
+fi
