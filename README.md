@@ -23,8 +23,8 @@ Initially, you need `python` 3.5.x or higher and `virtualenv` to be installed on
 
 ## Testing
 
-To pass all tests you first must launch the XML-RPC server for NER-tagger.
-`python src/ner_tagger_server.py` and then run `./runtests` script in a different terminal.
+Run `./runtests` script from terminal.
+Tests are written using `unittest` package from standard library.
 
 ## Profiling
 
