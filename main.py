@@ -137,7 +137,7 @@ def _main():
 
             data = schemify(ner_data, sentiment_data, file_content.split())
 
-            print(data)
+            # print(data)
             # db_write(config["db_service_addr"], data)
 
     return NotImplemented
