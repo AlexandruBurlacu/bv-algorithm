@@ -6,6 +6,7 @@ import argparse
 import os
 import json
 import requests
+import hashlib
 
 from src import get_config, sentiment_tagger, NERTagger, CharacterProcessor
 from src.utilities import drop_none
@@ -105,7 +106,7 @@ def schemify(ner_data, sent_data, raw_data):
     }
     fields["sentiment"] = sentiment_processor(sent_data)
     # fields["time"] = time_processor(ner_data)
-    # fields["id"] =
+    fields["id"] = hashlib.sha1(" ".join(raw_data).encode("utf-8")).hexdigest()
     # fields["metadata"] = get_metadata(...)
     fields["genre"] = {
         "space": None, # space_processor()
