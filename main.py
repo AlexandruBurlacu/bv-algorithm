@@ -5,8 +5,8 @@
 import argparse
 import os
 import json
-import requests
 import hashlib
+import requests
 
 from src import get_config, sentiment_tagger, NERTagger, CharacterProcessor
 from src.utilities import drop_none
@@ -40,10 +40,14 @@ def sent_score(sent_data):
 
     return sent_dict
 
+def time_processor(data):
+    return "ALTERNATIVE_TIMELINE"
+
 def sentiment_processor(sent_data):
     """Computes the values for 'sentiment' field in the schema."""
     sent_d = list(drop_none(sent_data))
-    return {"overall": sent_score(sent_d), "timeline": sent_d}
+    sent_list = [{"axis": k, "value": v} for k, v in sent_score(sent_d).items()]
+    return {"overall": [sent_list], "timeline": sent_d}
 
 def schemify(ner_data, sent_data, raw_data):
     """The schema
@@ -86,13 +90,14 @@ def schemify(ner_data, sent_data, raw_data):
                     "beyondsolarsystem": 0/1
                 }
             }
-            "characters": {
-                "aliens": 0/1
-                "mutants": 0/1
-                "robots": 0/1
-                "humanoiddroids": 0/1
-                "dragons": 0/1
-                "superintelligence": 0/1
+            "characters":
+                "labels": {
+                    "aliens": 0/1
+                    "mutants": 0/1
+                    "robots": 0/1
+                    "humanoiddroids": 0/1
+                    "dragons": 0/1
+                    "superintelligence": 0/1
             }
         }
     }
@@ -104,13 +109,25 @@ def schemify(ner_data, sent_data, raw_data):
         "time": None,
         "genre": None
     }
+
+    space_default = {
+        "insideearth": 0,
+        "otherplanets": 0,
+        "outerspace": 0,
+        "beyondsolarsystem": 0,
+    }
+
     fields["sentiment"] = sentiment_processor(sent_data)
-    # fields["time"] = time_processor(ner_data)
+    fields["time"] = {"labels": time_processor(ner_data)}
     fields["id"] = hashlib.sha1(" ".join(raw_data).encode("utf-8")).hexdigest()
     # fields["metadata"] = get_metadata(...)
+    fields["metadata"] = {
+        "author": "Robert A. Heinlein".lower(),
+        "title": "some_title"
+    }
     fields["genre"] = {
-        "space": None, # space_processor()
-        "characters": CharacterProcessor().run(raw_data)
+        "space": {"labels": space_default}, # space_processor()
+        "characters": {"labels": CharacterProcessor().run(raw_data)}
     }
     return fields
 
