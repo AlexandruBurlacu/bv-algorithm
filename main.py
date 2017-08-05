@@ -73,7 +73,7 @@ def schemify(ner_data, sent_data, raw_data):
                 "anger":
             }
         }
-        "time": {
+        "timeSetting": {
             "labels": {
                 "present":
                 "past":
@@ -82,7 +82,7 @@ def schemify(ner_data, sent_data, raw_data):
             }
         }
         "genre": {
-            "space": {
+            "spaceSetting": {
                 "labels": {
                     "insideearth": 0/1
                     "otherplanets": 0/1
@@ -106,7 +106,7 @@ def schemify(ner_data, sent_data, raw_data):
         "id": None,
         "sentiment": None,
         "metadata": None,
-        "time": None,
+        "timeSetting": None,
         "genre": None
     }
 
@@ -118,7 +118,7 @@ def schemify(ner_data, sent_data, raw_data):
     }
 
     fields["sentiment"] = sentiment_processor(sent_data)
-    fields["time"] = {"labels": time_processor(ner_data)}
+    fields["timeSetting"] = {"labels": time_processor(ner_data)}
     fields["id"] = hashlib.sha1(" ".join(raw_data).encode("utf-8")).hexdigest()
     # fields["metadata"] = get_metadata(...)
     fields["metadata"] = {
@@ -126,7 +126,7 @@ def schemify(ner_data, sent_data, raw_data):
         "title": "some_title"
     }
     fields["genre"] = {
-        "space": {"labels": space_default}, # space_processor()
+        "spaceSetting": {"labels": space_default}, # space_processor()
         "characters": {"labels": CharacterProcessor().run(raw_data)}
     }
     return fields
