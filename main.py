@@ -4,6 +4,7 @@
 
 import argparse
 import os
+import csv
 import json
 import hashlib
 import requests
@@ -49,7 +50,35 @@ def sentiment_processor(sent_data):
     sent_list = [{"axis": k, "value": v} for k, v in sent_score(sent_d).items()]
     return {"overall": [sent_list], "timeline": sent_d}
 
-def schemify(ner_data, sent_data, raw_data):
+def get_metadata(meta_data):
+    """
+    "metadata": {
+            "author":
+            "title":
+            "goodreads_score":
+            "goodreads_n_rev":
+            "cover_url":
+            "pagecount":
+            "genre":
+            "authorgender": [F, M]
+            "country":
+            "lengthtag": [short, medium, long]
+            "pubyear":
+        }
+
+    Meta file columns order
+        Title,Author,GoodrReads Stars,GoodReads # Reviews,Cover URL,Name
+    """
+    metadata = {}
+    metadata.update({"author": meta_data[1].lower()})
+    metadata.update({"title": meta_data[0].lower()})
+    metadata.update({"goodreads_score": meta_data[2] or None})
+    metadata.update({"goodreads_n_rev": meta_data[3] or None})
+    metadata.update({"cover_url": meta_data[4]})
+
+    return metadata
+
+def schemify(ner_data, sent_data, raw_data, meta_data):
     """The schema
     book_name: {
         "id":
@@ -120,11 +149,7 @@ def schemify(ner_data, sent_data, raw_data):
     fields["sentiment"] = sentiment_processor(sent_data)
     fields["timeSetting"] = {"labels": time_processor(ner_data)}
     fields["id"] = hashlib.sha1(" ".join(raw_data).encode("utf-8")).hexdigest()
-    # fields["metadata"] = get_metadata(...)
-    fields["metadata"] = {
-        "author": "Robert A. Heinlein".lower(),
-        "title": "some_title"
-    }
+    fields["metadata"] = get_metadata(meta_data)
     fields["genre"] = {
         "spaceSetting": {"labels": space_default}, # space_processor()
         "characters": {"labels": CharacterProcessor().run(raw_data)}
@@ -132,30 +157,52 @@ def schemify(ner_data, sent_data, raw_data):
     return fields
 
 def _main():
+    """TODO:
+    Traceback (most recent call last):
+        File "main.py", line 201, in <module>
+            _main()
+        File "main.py", line 182, in _main
+            file_content = file_ptr.read()
+        File "/home/alexburlacu/Work/2017_2H_BookVoyager/bv-algorithm/.venv/lib/python3.5/codecs.py", line 321, in decode
+            (result, consumed) = self._buffer_decode(data, self.errors, final)
+        UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb0 in position 1261: invalid start byte
+
+    """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source")
-    parser.add_argument("--destination")
+    parser.add_argument("--source")   # a directory
+    parser.add_argument("--metadata") # a .csv file
     args = parser.parse_args()
 
     config = get_config()
     ner_tagger = NERTagger()
 
-    agg = []
-    for title in get_data(args.source): # "resources/raw_text" # for test purpose only
-        with open(title) as file_ptr, \
-             open(config["sentiment_vocab"]) as vocab_ptr:
-            file_content = file_ptr.read()
+    with open(args.metadata) as m_fptr:
+        meta = csv.reader(m_fptr)
+        next(meta, None)
 
-            vocab = json.load(vocab_ptr)
+        agg = []
+        for (col, *cols, file_name) in meta: # "resources/raw_text" # for test purpose only
+            title = args.source + "/" + file_name
+            meta_data = [col, *cols]
 
-            sentiment_data = (sentiment_tagger(i, word, vocab)
-                              for i, word in enumerate(file_content.split()))
+            print(title)
 
-            ner_data = ner_tagger.get_labels(file_content.splitlines())
+            with open(title) as file_ptr, \
+                open(config["sentiment_vocab"]) as vocab_ptr:
+                file_content = file_ptr.read()
 
-            data = schemify(ner_data, sentiment_data, file_content.split())
+                vocab = json.load(vocab_ptr)
 
-            agg += [data]
+                sentiment_data = (sentiment_tagger(i, word, vocab)
+                                  for i, word in enumerate(file_content.split()))
+
+                ner_data = ner_tagger.get_labels(file_content.splitlines())
+
+                data = schemify(ner_data, sentiment_data, file_content.split(), meta_data)
+
+                print(data)
+                return
+                agg += [data]
 
     db_write(config["db_service_addr"], agg)
 

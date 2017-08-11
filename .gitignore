@@ -1,6 +1,6 @@
 .venv
-resources/emotions
-resources/raw_text
+!resources/*.json
+resources/*
 *_reports
 project_info
 __pycache__
