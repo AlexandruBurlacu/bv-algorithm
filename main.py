@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 # Author: Alexandru Varacuta
 # Email:  alexandru-varacuta@bookvoyager.org
@@ -157,17 +158,6 @@ def schemify(ner_data, sent_data, raw_data, meta_data):
     return fields
 
 def _main():
-    """TODO:
-    Traceback (most recent call last):
-        File "main.py", line 201, in <module>
-            _main()
-        File "main.py", line 182, in _main
-            file_content = file_ptr.read()
-        File "/home/alexburlacu/Work/2017_2H_BookVoyager/bv-algorithm/.venv/lib/python3.5/codecs.py", line 321, in decode
-            (result, consumed) = self._buffer_decode(data, self.errors, final)
-        UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb0 in position 1261: invalid start byte
-
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument("--source")   # a directory
     parser.add_argument("--metadata") # a .csv file
@@ -187,7 +177,7 @@ def _main():
 
             print(title)
 
-            with open(title) as file_ptr, \
+            with open(title, encoding="utf-8", errors="replace") as file_ptr, \
                 open(config["sentiment_vocab"]) as vocab_ptr:
                 file_content = file_ptr.read()
 
@@ -199,9 +189,7 @@ def _main():
                 ner_data = ner_tagger.get_labels(file_content.splitlines())
 
                 data = schemify(ner_data, sentiment_data, file_content.split(), meta_data)
-
-                print(data)
-                return
+                
                 agg += [data]
 
     db_write(config["db_service_addr"], agg)
