@@ -175,8 +175,6 @@ def _main():
             title = args.source + "/" + file_name
             meta_data = [col, *cols]
 
-            print(title)
-
             with open(title, encoding="utf-8", errors="replace") as file_ptr, \
                 open(config["sentiment_vocab"]) as vocab_ptr:
                 file_content = file_ptr.read()
@@ -189,10 +187,11 @@ def _main():
                 ner_data = ner_tagger.get_labels(file_content.splitlines())
 
                 data = schemify(ner_data, sentiment_data, file_content.split(), meta_data)
-                
+
                 agg += [data]
 
     db_write(config["db_service_addr"], agg)
+    # print(json.dumps(agg))
 
 
 if __name__ == '__main__':
