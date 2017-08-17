@@ -48,7 +48,7 @@ def time_processor(data):
 def sentiment_processor(sent_data):
     """Computes the values for 'sentiment' field in the schema."""
     sent_d = list(drop_none(sent_data))
-    sent_list = [{"axis": k, "value": v} for k, v in sent_score(sent_d).items()]
+    sent_list = [{"axis": k, "value": abs(v)} for k, v in sent_score(sent_d).items()]
     return {"overall": [sent_list], "timeline": sent_d}
 
 def get_metadata(meta_data):
@@ -191,7 +191,6 @@ def _main():
                 agg += [data]
 
     db_write(config["db_service_addr"], agg)
-    # print(json.dumps(agg))
 
 
 if __name__ == '__main__':
