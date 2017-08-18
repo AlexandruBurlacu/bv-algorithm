@@ -71,8 +71,8 @@ def get_metadata(meta_data):
         Title,Author,GoodrReads Stars,GoodReads # Reviews,Cover URL,Name
     """
     metadata = {}
-    metadata.update({"author": meta_data[1].lower()})
-    metadata.update({"title": meta_data[0].lower()})
+    metadata.update({"author": meta_data[1]})
+    metadata.update({"title": meta_data[0]})
     metadata.update({"goodreads_score": meta_data[2] or None})
     metadata.update({"goodreads_n_rev": meta_data[3] or None})
     metadata.update({"cover_url": meta_data[4]})
