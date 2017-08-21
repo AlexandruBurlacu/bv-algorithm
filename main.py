@@ -47,10 +47,10 @@ def time_processor(data):
 
 def space_processor(raw_data, keyword_dict):
     space_dict = {
-        "insideearth": 0,
-        "otherplanets": 0,
-        "outerspace": 0,
-        "beyondsolarsystem": 0,
+        "insideearth": [],
+        "otherplanets": [],
+        "outerspace": [],
+        "beyondsolarsystem": [],
     }
     return space_tagger(remove_punctuation(raw_data), keyword_dict, space_dict)
 
@@ -198,8 +198,7 @@ def _main():
                                 file_content.split(), meta_data)
 
                 agg += [data]
-                print(json.dumps(data))
-                return
+                # print(json.dumps(data))
 
     # db_write(config["db_service_addr"], agg)
 

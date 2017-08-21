@@ -8,7 +8,8 @@ This module provides utility functions.
 
 import json
 import os
-import re, string
+import re
+import string
 
 PATH = os.path.abspath(os.path.dirname(__file__))
 
@@ -23,4 +24,4 @@ def get_config(config_file_path=os.path.join(PATH, "../config.json")):
 
 def remove_punctuation(data):
     regex = re.compile("[{}]".format(re.escape(string.punctuation)))
-    return regex.sub("", data)
+    return regex.sub(" ", data)
