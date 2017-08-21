@@ -11,7 +11,7 @@ import hashlib
 import requests
 
 from src import get_config, sentiment_tagger, NERTagger, CharacterProcessor, space_tagger
-from src.utilities import drop_none, remove_punctuation
+from src.utilities import drop_none, remove_punctuation, merge_dicts
 
 def db_write(db_service_url, sources):
     """Wraps the underling request to the database service."""
@@ -45,14 +45,18 @@ def sent_score(sent_data):
 def time_processor(data):
     return "ALTERNATIVE_TIMELINE"
 
-def space_processor(raw_data, keyword_dict):
+def space_processor(raw_data, description, keyword_dict):
     space_dict = {
-        "insideearth": [],
-        "otherplanets": [],
-        "outerspace": [],
-        "beyondsolarsystem": [],
+        "insideearth": 0,
+        "otherplanets": 0,
+        "outerspace": 0,
+        "beyondsolarsystem": 0,
     }
-    return space_tagger(remove_punctuation(raw_data), keyword_dict, space_dict)
+    raw_data_dict = space_tagger(remove_punctuation(raw_data),
+                                 keyword_dict, space_dict, min_occ=2)
+    des_data_dict = space_tagger(remove_punctuation(description),
+                                 keyword_dict, space_dict, min_occ=1)
+    return merge_dicts(raw_data_dict, des_data_dict)
 
 def sentiment_processor(sent_data):
     """Computes the values for 'sentiment' field in the schema."""
@@ -192,13 +196,15 @@ def _main():
 
                 ner_data = ner_tagger.get_labels(file_content.splitlines())
 
-                space_dict = space_processor(file_content, space_vocab)
+                # meta_data[5] contains title's description
+                space_dict = space_processor(file_content, meta_data[5], space_vocab)
 
                 data = schemify(ner_data, sentiment_data, space_dict,
                                 file_content.split(), meta_data)
 
                 agg += [data]
-                # print(json.dumps(data))
+                print(json.dumps(data))
+                return
 
     # db_write(config["db_service_addr"], agg)
 

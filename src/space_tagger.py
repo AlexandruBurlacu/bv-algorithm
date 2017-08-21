@@ -11,18 +11,13 @@ import logging
 from collections import Counter
 from .utilities import remove_punctuation
 
-def space_tagger(data, word_dict, default_dict):
+def space_tagger(data, word_dict, default_dict, min_occ):
     for location, location_type in word_dict.items():
         if " {} ".format(location) in data:
-            default_dict[location_type.replace(" ", "")] += [location]
+            default_dict[location_type.replace(" ", "")] += 1
 
-    summed_loc_occur = {k: dict(Counter(val)) for k, val in default_dict.items()}
-
-    logging.error(summed_loc_occur)
-
-    for k in summed_loc_occur.keys():
-        cond = list(filter(lambda x: x > 1, summed_loc_occur[k].values()))
-        if cond:
+    for k in default_dict.keys():
+        if default_dict[k] >= min_occ:
             default_dict[k] = 1
         else:
             default_dict[k] = 0
@@ -32,9 +27,9 @@ def space_tagger(data, word_dict, default_dict):
 def main():
     data = "He lives in China, Shenzen."
     kv_map = {"China": "Asia", "Shenzen": "Asia"}
-    space_dict = {"Asia": [], "Europe": [], "America": []}
+    space_dict = {"Asia": 0, "Europe": 0, "America": 0}
 
-    print(space_tagger(remove_punctuation(data), kv_map, space_dict))
+    print(space_tagger(remove_punctuation(data), kv_map, space_dict, min_occ=2))
 
 if __name__ == '__main__':
     main()

@@ -25,3 +25,10 @@ def get_config(config_file_path=os.path.join(PATH, "../config.json")):
 def remove_punctuation(data):
     regex = re.compile("[{}]".format(re.escape(string.punctuation)))
     return regex.sub(" ", data)
+
+def merge_dicts(dict_a, dict_b):
+    for k in dict_a.keys():
+        if dict_a[k] == 1:
+            dict_b[k] = 1
+
+    return dict_b
