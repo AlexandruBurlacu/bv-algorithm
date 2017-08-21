@@ -65,10 +65,11 @@ def get_metadata(meta_data):
             "country":
             "lengthtag": [short, medium, long]
             "pubyear":
+            "description":
         }
 
     Meta file columns order
-        Title,Author,GoodrReads Stars,GoodReads # Reviews,Cover URL,Name
+        Title,Author,GoodrReads Stars,GoodReads # Reviews,Cover URL,Description,Filename
     """
     metadata = {}
     metadata.update({"author": meta_data[1]})
@@ -76,6 +77,7 @@ def get_metadata(meta_data):
     metadata.update({"goodreads_score": meta_data[2] or None})
     metadata.update({"goodreads_n_rev": meta_data[3] or None})
     metadata.update({"cover_url": meta_data[4]})
+    metadata.update({"description": meta_data[5]})
 
     return metadata
 
