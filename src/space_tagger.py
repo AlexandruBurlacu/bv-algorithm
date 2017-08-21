@@ -6,9 +6,6 @@ This module contains function to deal with space settings indentification of the
 # Author: Alexandru Burlacu
 # Email:  alexandru-varacuta@bookvoyager.org
 
-import logging
-
-from collections import Counter
 from .utilities import remove_punctuation
 
 def space_tagger(data, word_dict, default_dict, min_occ):

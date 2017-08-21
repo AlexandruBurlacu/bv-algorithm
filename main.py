@@ -203,10 +203,8 @@ def _main():
                                 file_content.split(), meta_data)
 
                 agg += [data]
-                print(json.dumps(data))
-                return
 
-    # db_write(config["db_service_addr"], agg)
+    db_write(config["db_service_addr"], agg)
 
 
 if __name__ == '__main__':
