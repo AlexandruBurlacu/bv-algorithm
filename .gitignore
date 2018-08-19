@@ -6,3 +6,4 @@ project_info
 __pycache__
 temp_*
 *.log
+.vscode
